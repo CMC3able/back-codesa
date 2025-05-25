@@ -1,5 +1,6 @@
-package co.com.codesa.prueba.backCodesa.model.MySQL;
+package co.com.codesa.prueba.backCodesa.model.mysql;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,22 +12,26 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ESTUDIANTE")
+@Table(name = "Estudiante")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Estudiante {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "Id")
     private Long id;
 
-    @Column(name = "NUMERO_MATRICULA")
+    @Column(name = "IdPersona")
+    private Long idPersona;
+
+    @Column(name = "NumeroMatricula")
     private Long numeroMatricula;
 
-    @Column(name = "GRADO")
+    @Column(name = "Grado")
     private String grado;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID", insertable = false, updatable = false)
+    @JoinColumn(name = "IdPersona", insertable=false, updatable=false)
     private Persona persona;
 
 }

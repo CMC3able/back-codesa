@@ -1,4 +1,4 @@
-package co.com.codesa.prueba.backCodesa.model.MySQL;
+package co.com.codesa.prueba.backCodesa.model.mysql;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -11,20 +11,23 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "ADMINISTRATIVO")
+@Table(name = "Administrativo")
 public class Administrativo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "Id")
     private Long id;
 
-    @Column(name = "CARGO")
+    @Column(name = "IdPersona")
+    private Long idPersona;
+
+    @Column(name = "cargo")
     private String cargo;
 
-    @Column(name = "DEPARTAMENTO")
+    @Column(name = "Departamento")
     private String departamento;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID", insertable = false, updatable = false)
+    @JoinColumn(name = "IdPersona", insertable=false, updatable=false)
     private Persona persona;
 }

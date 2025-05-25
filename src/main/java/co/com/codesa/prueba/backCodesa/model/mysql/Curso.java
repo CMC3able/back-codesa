@@ -1,38 +1,38 @@
-package co.com.codesa.prueba.backCodesa.model.MySQL;
+package co.com.codesa.prueba.backCodesa.model.mysql;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Data
 @Entity
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "CURSO")
+@Table(name = "Curso")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Curso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "Id")
     private Long id;
 
-    @Column(name = "NOMBRE")
+    @Column(name = "Nombre")
     private String nombre;
 
-    @Column(name = "DESCRIPCION")
+    @Column(name = "Descripcion")
     private String  descripcion;
 
-    @Column(name = "CREDITOS")
+    @Column(name = "Creditos")
     private Long creditos;
 
-    @Column(name = "ID_PROFESOR")
+    @Column(name = "IdProfesor")
     private Long idProfesor;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_PROFESOR", insertable = false, updatable = false)
+    @JoinColumn(name = "IdProfesor", insertable=false, updatable=false)
     private Profesor profesor;
 }
