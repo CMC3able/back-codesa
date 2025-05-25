@@ -19,3 +19,4 @@ Se realizo la conexion con la base de mysql, se uso lombok e hibernate, se confi
 
 - se realizaron pruebas manuales completas con Postman: `GET`, `POST`, `PUT` y `DELETE` funcionales.
 
+![image](https://github.com/user-attachments/assets/f8f87c29-b2c8-4519-99f8-d4d0df07dbed)
